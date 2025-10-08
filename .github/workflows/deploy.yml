@@ -31,6 +31,6 @@ jobs:
           username: ${{ secrets.SERVER_USER }}
           key: ${{ secrets.SERVER_SSH_KEY }}
           port: 22
-          script: |
-            rm -rf /var/www/html/*
-            cp -r ./dist/* /var/www/html/
+          source: "dist/*"
+          target: "/var/www/html"
+
