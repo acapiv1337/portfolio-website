@@ -3,27 +3,32 @@ name: Vue CI/CD
 on:
   push:
     branches:
-      - main  # deploy when you push to main branch
+      - main  # trigger on push to main
 
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
 
     steps:
+      # 1️⃣ Checkout your code
       - name: Checkout code
         uses: actions/checkout@v3
 
+      # 2️⃣ Setup Node.js
       - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
           node-version: 20
 
+      # 3️⃣ Install dependencies
       - name: Install dependencies
         run: npm install
 
+      # 4️⃣ Build Vue project
       - name: Build Vue project
         run: npm run build
 
+      # 5️⃣ Deploy to server using SSH sync
       - name: Deploy to server
         uses: appleboy/ssh-action@v0.1.9
         with:
@@ -31,6 +36,6 @@ jobs:
           username: ${{ secrets.SERVER_USER }}
           key: ${{ secrets.SERVER_SSH_KEY }}
           port: 22
-          source: "dist/*"
-          target: "/var/www/html"
-
+          sync: "dist/ /var/www/html/"
+          # optional: enable debug logs
+          debug: true
