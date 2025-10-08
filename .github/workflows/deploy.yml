@@ -37,11 +37,5 @@ jobs:
           key: ${{ secrets.SERVER_SSH_KEY }}
           port: 22
           script: |
-            # Remove old files
             rm -rf /var/www/html/*
-            
-            # Copy new build files
             cp -r ./dist/* /var/www/html/
-            
-            # Optional: restart nginx if needed
-            # sudo systemctl restart nginx
