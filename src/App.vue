@@ -5,7 +5,7 @@
 
     <!-- Hidden audio element -->
     <audio ref="bgMusic" autoplay loop muted>
-      <source src="/bon_voyage.mp3" type="audio/mpeg" />
+      <source src="/bon_voyage_edit.mp3" type="audio/mpeg" />
       Your browser does not support the audio element.
     </audio>
   </div>
