@@ -3,14 +3,14 @@ name: Vue CI/CD
 on:
   push:
     branches:
-      - main  # trigger on push to main
+      - main  # deploy when pushing to main branch
 
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
 
     steps:
-      # 1️⃣ Checkout your code
+      # 1️⃣ Checkout code
       - name: Checkout code
         uses: actions/checkout@v3
 
@@ -28,7 +28,7 @@ jobs:
       - name: Build Vue project
         run: npm run build
 
-      # 5️⃣ Deploy to server using SSH sync
+      # 5️⃣ Deploy to server via SSH
       - name: Deploy to server
         uses: appleboy/ssh-action@v0.1.9
         with:
@@ -36,6 +36,12 @@ jobs:
           username: ${{ secrets.SERVER_USER }}
           key: ${{ secrets.SERVER_SSH_KEY }}
           port: 22
-          sync: "dist/ /var/www/html/"
-          # optional: enable debug logs
-          debug: true
+          script: |
+            # Remove old files
+            rm -rf /var/www/html/*
+            
+            # Copy new build files
+            cp -r ./dist/* /var/www/html/
+            
+            # Optional: restart nginx if needed
+            # sudo systemctl restart nginx
