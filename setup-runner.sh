@@ -45,37 +45,6 @@ echo ""
 echo "📝 Example configuration command (you'll get a unique token):"
 echo "./config.sh --url https://github.com/acapiv1337/portfolio-website --token YOUR_TOKEN"
 echo ""
-echo "🔄 To run the service automatically, you can create a systemd service."
-echo "Would you like me to create the systemd service file? (y/n)"
-read -r create_service
-
-if [[ $create_service =~ ^[Yy]$ ]]; then
-    echo "📄 Creating systemd service file..."
-    
-    sudo tee /etc/systemd/system/github-runner.service > /dev/null <<EOF
-[Unit]
-Description=GitHub Actions Runner
-After=network.target
-
-[Service]
-Type=simple
-User=acap
-WorkingDirectory=$RUNNER_DIR
-ExecStart=$RUNNER_DIR/run.sh
-Restart=always
-RestartSec=5
-
-[Install]
-WantedBy=multi-user.target
-EOF
-
-    echo "✅ Systemd service created!"
-    echo "After configuring the runner, enable it with:"
-    echo "sudo systemctl enable github-runner"
-    echo "sudo systemctl start github-runner"
-fi
-
-echo ""
 echo "🎯 Summary:"
 echo "- Runner installed in: $RUNNER_DIR"
 echo "- Configure it with GitHub token"
