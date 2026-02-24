@@ -1,13 +1,30 @@
 import { createApp } from 'vue'
+import { createRouter, createWebHistory } from 'vue-router'
 import App from './App.vue'
+
+// Pages
+import OverviewPage from './pages/OverviewPage.vue'
+import ThoughtsPage from './pages/ThoughtsPage.vue'
+import PortfolioPage from './pages/PortfolioPage.vue'
+import ResumePage from './pages/ResumePage.vue'
 
 // Import global styles
 import './assets/css/reset.css'
 import './assets/css/variables.css'
 import './assets/css/global.css'
 
-// Create and mount the app
-const app = createApp(App)
+const routes = [
+  { path: '/', component: OverviewPage },
+  { path: '/thoughts', component: ThoughtsPage },
+  { path: '/portfolio', component: PortfolioPage },
+  { path: '/resume', component: ResumePage },
+]
 
-// Mount to DOM
+const router = createRouter({
+  history: createWebHistory(),
+  routes,
+})
+
+const app = createApp(App)
+app.use(router)
 app.mount('#app')
