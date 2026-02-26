@@ -1,8 +1,8 @@
 <template>
   <div class="page-container">
     <div class="page-header">
-      <h1>Welcome back<span class="dot">.</span></h1>
-      <p class="subtitle">Here's your personal dashboard — thoughts, work, and more.</p>
+      <h1>Overview<span class="dot">.</span></h1>
+      <p class="subtitle">AI Developer & Machine Learning specialist.</p>
     </div>
 
     <!-- Stats Grid -->
@@ -17,34 +17,11 @@
       </div>
     </div>
 
-    <!-- Two Column Section -->
-    <div class="grid-2">
-      <!-- Recent Thoughts -->
-      <div class="card">
-        <h2 class="card-title">Recent Thoughts</h2>
-        <div class="list">
-          <div v-for="thought in recentThoughts" :key="thought.title" class="list-item">
-            <div class="item-meta">
-              <span class="date">{{ thought.date }}</span>
-              <span class="tag">{{ thought.tag }}</span>
-            </div>
-            <p class="item-title">{{ thought.title }}</p>
-          </div>
-        </div>
-      </div>
-
-      <!-- Recent Projects -->
-      <div class="card">
-        <h2 class="card-title">Projects</h2>
-        <div class="list">
-          <div v-for="project in recentProjects" :key="project.name" class="list-item-project">
-            <div>
-              <p class="item-title">{{ project.name }}</p>
-              <p class="item-tech">{{ project.tech }}</p>
-            </div>
-            <span :class="['project-status', project.status]">{{ project.status }}</span>
-          </div>
-        </div>
+    <!-- About Section -->
+    <div class="about-section">
+      <h2 class="section-title">About</h2>
+      <div class="about-content">
+        <p>{{ aboutText }}</p>
       </div>
     </div>
   </div>
@@ -54,35 +31,18 @@
 import { Brain, Briefcase, FileText, TrendingUp } from 'lucide-vue-next'
 
 const stats = [
-  { label: 'Thoughts Written', value: '47', icon: Brain, change: '+3 this week' },
-  { label: 'Projects Shipped', value: '12', icon: Briefcase, change: '2 active' },
-  { label: 'Years Experience', value: '6+', icon: TrendingUp, change: 'data science' },
-  { label: 'Publications', value: '8', icon: FileText, change: '3 cited' },
-]
-
-const recentThoughts = [
-  {
-    date: 'Feb 24',
-    title: 'Why feature engineering still matters in the age of LLMs',
-    tag: 'ML',
-  },
-  {
-    date: 'Feb 22',
-    title: 'Notes on building data pipelines that don\'t break at 3am',
-    tag: 'Engineering',
-  },
-  {
-    date: 'Feb 19',
-    title: 'The quiet power of exploratory data analysis',
-    tag: 'Data',
-  },
+  { label: 'Projects Shipped', value: '6', icon: Briefcase, change: '3 active' },
+  { label: 'Years in Tech', value: '2', icon: TrendingUp, change: 'ML & AI' },
+  { label: 'Certifications', value: '5', icon: FileText, change: 'AWS, Power BI' },
 ]
 
 const recentProjects = [
-  { name: 'Anomaly Detector', tech: 'PyTorch · FastAPI', status: 'live' },
-  { name: 'NLP Dashboard', tech: 'React · D3.js', status: 'live' },
-  { name: 'Data Pipeline CLI', tech: 'Python · Airflow', status: 'building' },
+  { name: 'Fire Detection Analytics', tech: 'Spark · Kafka · PostgreSQL', status: 'wip' },
+  { name: 'CO₂ Dehydration Forecasting', tech: 'Django · Python · SQL', status: 'wip' },
+  { name: 'SWIFT Golf Scoring OCR', tech: 'OpenCV · OpenAI · MQTT', status: 'wip' },
 ]
+
+const aboutText = `I'm a developer with a strong data science background and over 2 years of experience building AI-driven solutions. Starting with two years at university research institutes developing innovative analytics pipelines, I ventured into the startup world as an AI Developer at CARA COM MY, where I design and implement real-time data systems and machine learning models. I'm passionate about exploring new tech stacks, building impactful projects, and sharing knowledge openly. I believe in collaborative learning and turning complex concepts into elegant, practical solutions.`
 </script>
 
 <style scoped>
@@ -157,24 +117,31 @@ const recentProjects = [
 
 .grid-2 {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(24rem, 1fr));
+  grid-template-columns: 1fr;
   gap: 1.5rem;
 }
 
-.card {
-  padding: 1.25rem;
+.about-section {
+  padding: 1.5rem;
   border-radius: 0.5rem;
   background-color: var(--color-card);
   border: 1px solid var(--color-border);
 }
 
-.card-title {
+.section-title {
   font-size: 0.875rem;
   font-family: var(--font-family-mono);
   text-transform: uppercase;
   letter-spacing: 0.125em;
   color: var(--color-foreground-muted);
   margin: 0 0 1rem 0;
+}
+
+.about-content p {
+  font-size: 0.95rem;
+  line-height: 1.7;
+  color: var(--color-foreground);
+  margin: 0;
 }
 
 .list {
@@ -257,5 +224,14 @@ const recentProjects = [
 .project-status.building {
   background-color: rgba(245, 158, 11, 0.1);
   color: var(--color-chart-4);
+}
+
+.project-status.wip {
+  background-color: rgba(59, 130, 246, 0.1);
+  color: #3b82f6;
+}
+
+.project-status.wip::before {
+  content: 'WIP · ';
 }
 </style>

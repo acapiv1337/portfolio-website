@@ -1,13 +1,8 @@
 <template>
   <aside class="sidebar">
     <div class="sidebar-header">
-      <div class="sidebar-avatar">
-        <span class="avatar-text">MA</span>
-      </div>
-      <div>
-        <p class="sidebar-name">Muhammad Amirul</p>
-        <p class="sidebar-role">data scientist</p>
-      </div>
+      <img src="/profile.jpg" alt="Muhammad Amirul Asyraf" class="sidebar-avatar" />
+      <p class="sidebar-name">Muhammad Amirul Asyraf bin Roslan</p>
     </div>
 
     <nav class="sidebar-nav">
@@ -30,18 +25,22 @@
         <component :is="social.icon" :size="16" />
       </a>
     </div>
+
+    <div class="sidebar-bottom">
+      <p class="created-text">© acapans™ {{ currentYear }}</p>
+    </div>
   </aside>
 </template>
 
 <script setup>
 import { useRoute } from 'vue-router'
-import { Home, Brain, Briefcase, FileText, Github, Linkedin, Mail } from 'lucide-vue-next'
+import { Home, Briefcase, FileText, Github, Linkedin, Mail } from 'lucide-vue-next'
 
 const route = useRoute()
+const currentYear = new Date().getFullYear()
 
 const navItems = [
   { title: 'Overview', url: '/', icon: Home },
-  { title: 'Thoughts', url: '/thoughts', icon: Brain },
   { title: 'Portfolio', url: '/portfolio', icon: Briefcase },
   { title: 'Resume', url: '/resume', icon: FileText },
 ]
@@ -59,7 +58,7 @@ const isActive = (url) => {
 
 <style scoped>
 .sidebar {
-  width: 14rem;
+  width: 18rem;
   border-right: 1px solid var(--color-sidebar-border);
   background-color: var(--color-sidebar-bg);
   display: flex;
@@ -75,20 +74,20 @@ const isActive = (url) => {
 
 .sidebar-header {
   display: flex;
+  flex-direction: column;
   align-items: center;
-  gap: 0.75rem;
-  padding: 0 1.25rem 1.5rem;
+  gap: 1rem;
+  padding: 1.5rem 1.25rem;
+  text-align: center;
 }
 
 .sidebar-avatar {
-  width: 2rem;
-  height: 2rem;
-  border-radius: 0.375rem;
-  background-color: var(--color-primary);
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  width: 8rem;
+  height: 8rem;
+  border-radius: 50%;
+  object-fit: cover;
   flex-shrink: 0;
+  border: 2px solid var(--color-sidebar-border);
 }
 
 .avatar-text {
@@ -99,10 +98,14 @@ const isActive = (url) => {
 }
 
 .sidebar-name {
-  font-size: 0.875rem;
-  font-weight: 500;
+  font-size: 0.8rem;
+  font-weight: 700;
   color: var(--color-sidebar-text-active);
+  line-height: 1.3;
+  white-space: nowrap;
+  letter-spacing: 0.5px;
   margin: 0;
+  font-family: 'Space Grotesk', var(--font-family-base);
 }
 
 .sidebar-role {
@@ -175,6 +178,21 @@ const isActive = (url) => {
 
 .social-link:hover {
   color: var(--color-sidebar-text-active);
+}
+
+.sidebar-bottom {
+  padding: 1rem 1.25rem;
+  border-top: 1px solid var(--color-sidebar-border);
+  margin-top: auto;
+}
+
+.created-text {
+  font-size: 0.65rem;
+  font-family: var(--font-family-mono);
+  color: var(--color-sidebar-text);
+  text-align: center;
+  margin: 0;
+  letter-spacing: 0.3px;
 }
 
 @media (max-width: 768px) {

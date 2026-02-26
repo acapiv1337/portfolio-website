@@ -28,6 +28,7 @@
           <div>
             <p class="item-title">{{ edu.degree }}</p>
             <p class="item-school">{{ edu.school }}</p>
+            <p class="item-gpa" v-if="edu.gpa">{{ edu.gpa }}</p>
           </div>
           <span class="item-period">{{ edu.year }}</span>
         </div>
@@ -47,33 +48,47 @@
 <script setup>
 const experience = [
   {
-    role: 'Senior Data Scientist',
-    company: 'TechCorp',
-    period: '2024 — Present',
-    description: 'Leading ML initiatives for product recommendations. Built models serving 10M+ daily predictions.',
+    role: 'AI Developer',
+    company: 'CARA COM MY Sdn Bhd.',
+    period: 'May 2025 – Present',
+    description: 'Developing AI-driven solutions and data pipelines. Designed real-time analytics pipeline with Apache Spark for Jabatan Bomba Malaysia. Developed OCR feature for SWIFT golf scoring app.',
   },
   {
-    role: 'Data Scientist',
-    company: 'StartupAI',
-    period: '2022 — 2024',
-    description: 'End-to-end ML pipelines for NLP and time series. Reduced churn prediction error by 35%.',
+    role: 'Machine Learning Developer',
+    company: 'IBDAAI',
+    period: 'Feb 2024 – March 2025',
+    description: 'Led development of CO₂ Dehydration Predictive Analytics for PETRONAS. Performed comprehensive EDA on oil & gas datasets and built Django system with continuous model retraining.',
   },
   {
-    role: 'Junior Data Analyst',
-    company: 'DataHouse',
-    period: '2020 — 2022',
-    description: 'Built dashboards, automated reports, and gradually moved into predictive modeling.',
+    role: 'Machine Learning Developer (Part-time)',
+    company: 'IBDAAI',
+    period: 'Jun 2023 – Jan 2024',
+    description: 'Assisted in Operational Monitoring Dashboard. Designed database architecture and executed web scraping with Selenium.',
+  },
+  {
+    role: 'Machine Learning Intern',
+    company: 'IBDAAI',
+    period: 'Mar 2023 – Jun 2023',
+    description: 'Enhanced code efficiency using pandas and NumPy. Developed predictive modeling techniques for oil price forecasting.',
+  },
+  {
+    role: 'Intern',
+    company: 'KANZU Research',
+    period: 'Aug 2020 – Sep 2020',
+    description: 'Managed website content using WordPress and edited promotional videos for research group.',
   },
 ]
 
 const skills = [
-  'Python', 'R', 'SQL', 'PyTorch', 'TensorFlow', 'Scikit-learn',
-  'Pandas', 'Apache Spark', 'Airflow', 'Docker', 'React', 'D3.js',
+  'Python', 'Flask', 'Django', 'PostgreSQL', 'Microsoft SQL Server',
+  'Apache Spark', 'Kafka', 'Docker', 'MLOps', 'Power BI',
+  'Web Scraping', 'IoT', 'Exploratory Data Analysis', 'Machine Learning',
+  'Predictive Analytics', 'Time-series Analysis', 'Hypothesis Testing',
 ]
 
 const education = [
-  { degree: 'M.Sc. Data Science', school: 'University of Tech', year: '2020' },
-  { degree: 'B.Sc. Statistics', school: 'State University', year: '2018' },
+  { degree: 'Bachelor of Information Systems (Hons.)', school: 'Universiti Teknologi MARA', year: '2021 – 2023', gpa: '3.68 (First-Class Honours)' },
+  { degree: 'Diploma in Computer Science', school: 'Universiti Teknologi MARA', year: '2018 – 2021', gpa: '3.83' },
 ]
 </script>
 
@@ -162,6 +177,12 @@ const education = [
   font-size: 0.75rem;
   font-family: var(--font-family-mono);
   color: var(--color-foreground-muted);
+  margin: 0.25rem 0 0 0;
+}
+
+.item-gpa {
+  font-size: 0.75rem;
+  color: var(--color-primary);
   margin: 0.25rem 0 0 0;
 }
 
