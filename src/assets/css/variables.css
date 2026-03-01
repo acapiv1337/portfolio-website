@@ -1,27 +1,46 @@
-/* CSS Custom Properties - Design System */
+/* CSS Custom Properties - Data Scientist Dashboard */
 :root {
   /* Colors */
-  --color-primary: #3498db;
-  --color-primary-dark: #2980b9;
-  --color-secondary: #2c3e50;
-  --color-accent: #667eea;
-  --color-accent-2: #764ba2;
+  --color-primary: #00d4ff;
+  --color-primary-dark: #0099cc;
+  --color-primary-light: #33e0ff;
   
-  --color-text: #333;
-  --color-text-light: #666;
-  --color-text-inverse: #fff;
+  --color-background: #0a0e1a;
+  --color-background-soft: #0f1420;
+  --color-background-mute: #131829;
   
-  --color-bg: #fff;
-  --color-bg-alt: #f8f9fa;
-  --color-bg-dark: #2c3e50;
+  --color-foreground: #d8dde5;
+  --color-foreground-muted: #8a92a0;
   
-  --color-border: #eee;
-  --color-shadow: rgba(0, 0, 0, 0.1);
-  --color-shadow-dark: rgba(0, 0, 0, 0.2);
+  --color-border: #1a2332;
+  --color-border-hover: #2a3a52;
+  
+  --color-card: #131829;
+  --color-card-hover: #1a2332;
+  
+  --color-secondary: #1a2332;
+  --color-secondary-foreground: #8a92a0;
+  
+  --color-accent: #00d4ff;
+  --color-success: #10b981;
+  --color-warning: #f59e0b;
+  --color-danger: #ef4444;
+  
+  --color-chart-1: #00d4ff;
+  --color-chart-2: #10b981;
+  --color-chart-3: #8b5cf6;
+  --color-chart-4: #f59e0b;
+  --color-chart-5: #ef4444;
+  
+  /* Sidebar colors */
+  --color-sidebar-bg: #0a0e1a;
+  --color-sidebar-border: #1a2332;
+  --color-sidebar-text: #8a92a0;
+  --color-sidebar-text-active: #00d4ff;
   
   /* Typography */
   --font-family-base: 'Inter', 'Segoe UI', 'Roboto', sans-serif;
-  --font-family-heading: 'Inter', 'Segoe UI', 'Roboto', sans-serif;
+  --font-family-mono: 'JetBrains Mono', 'Monaco', monospace;
   
   --font-size-xs: 0.75rem;
   --font-size-sm: 0.875rem;
