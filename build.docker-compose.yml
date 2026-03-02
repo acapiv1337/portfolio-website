@@ -1,4 +1,0 @@
-services:
-  portfolio:
-    build: .
-    image: ghcr.io/acapiv1337/portfolio-website:latest
