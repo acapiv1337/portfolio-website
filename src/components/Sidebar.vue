@@ -36,7 +36,7 @@
 
 <script setup>
 import { useRoute } from 'vue-router'
-import { Home, Briefcase, FileText, Github, Linkedin, Mail } from 'lucide-vue-next'
+import { Home, Briefcase, FileText, Github, Linkedin, Mail, Youtube } from 'lucide-vue-next'
 
 const route = useRoute()
 const currentYear = new Date().getFullYear()
@@ -51,6 +51,7 @@ const socials = [
   { icon: Github, href: 'https://github.com/acapiv1337', label: 'GitHub' },
   { icon: Linkedin, href: 'https://linkedin.com/in/amirul-asyraf-roslan', label: 'LinkedIn' },
   { icon: Mail, href: 'mailto:amirlasyrf.00@gmail.com', label: 'Email' },
+  { icon: Youtube, href: 'https://www.youtube.com/@muhammadamirulasyrafbinros1257', label: 'YouTube' },
 ]
 
 const isActive = (url) => {

@@ -29,5 +29,4 @@ jobs:
 
       - name: Deploy on server
         run: |
-          cd /home/acap/portfolio-website
-          docker compose up -d --pull always --force-recreate
+          docker compose -f docker-compose.server.yml up -d --pull always --force-recreate
