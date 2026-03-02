@@ -4,7 +4,7 @@
       <a href="/profile.jpg" target="_blank" rel="noopener noreferrer">
         <img src="/profile.jpg" alt="Muhammad Amirul Asyraf" class="sidebar-avatar" />
       </a>
-      <p class="sidebar-name">Muhammad AAmirul Asyraf bin Roslan</p>
+      <p class="sidebar-name">Muhammad Amirul Asyraf bin Roslan</p>
     </div>
 
     <nav class="sidebar-nav">
