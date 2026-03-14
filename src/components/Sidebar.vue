@@ -1,5 +1,5 @@
 <template>
-  <aside class="sidebar">
+  <aside :class="['sidebar', { 'sidebar--open': isOpen }]">
     <div class="sidebar-header">
       <a href="/profile.jpg" target="_blank" rel="noopener noreferrer">
         <img src="/profile.jpg" alt="Muhammad Amirul Asyraf" class="sidebar-avatar" />
@@ -10,11 +10,12 @@
     <nav class="sidebar-nav">
       <div class="nav-group">
         <p class="nav-label">Navigate</p>
-        <router-link 
-          v-for="item in navItems" 
+        <router-link
+          v-for="item in navItems"
           :key="item.title"
           :to="item.url"
           :class="['nav-item', { active: isActive(item.url) }]"
+          @click="emit('close')"
         >
           <component :is="item.icon" :size="16" />
           <span>{{ item.title }}</span>
@@ -24,7 +25,7 @@
 
     <div class="sidebar-footer">
       <a v-for="social in socials" :key="social.label" :href="social.href" :title="social.label" class="social-link">
-        <component :is="social.icon" :size="16" />
+        <component :is="social.icon" :size="22" />
       </a>
     </div>
 
@@ -37,6 +38,15 @@
 <script setup>
 import { useRoute } from 'vue-router'
 import { Home, Briefcase, FileText, Github, Linkedin, Mail, Youtube } from 'lucide-vue-next'
+
+defineProps({
+  isOpen: {
+    type: Boolean,
+    default: false
+  }
+})
+
+const emit = defineEmits(['close'])
 
 const route = useRoute()
 const currentYear = new Date().getFullYear()
@@ -85,8 +95,8 @@ const isActive = (url) => {
 }
 
 .sidebar-avatar {
-  width: 8rem;
-  height: 8rem;
+  width: 11rem;
+  height: 11rem;
   border-radius: 50%;
   object-fit: cover;
   flex-shrink: 0;
@@ -165,7 +175,8 @@ const isActive = (url) => {
 .sidebar-footer {
   display: flex;
   align-items: center;
-  gap: 0.75rem;
+  justify-content: center;
+  gap: 1.25rem;
   padding: 1rem 1.25rem;
   border-top: 1px solid var(--color-sidebar-border);
 }
@@ -200,25 +211,13 @@ const isActive = (url) => {
 
 @media (max-width: 768px) {
   .sidebar {
-    width: 100%;
-    height: auto;
-    border-right: none;
-    border-bottom: 1px solid var(--color-sidebar-border);
-    flex-direction: row;
-    align-items: center;
-    padding: 1rem;
-    position: relative;
-    top: auto;
-    left: auto;
+    width: 16rem;
+    transform: translateX(-100%);
+    transition: transform 0.25s ease;
   }
 
-  .sidebar-header {
-    flex: 1;
-  }
-
-  .sidebar-nav,
-  .sidebar-footer {
-    display: none;
+  .sidebar--open {
+    transform: translateX(0);
   }
 }
 </style>

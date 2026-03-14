@@ -1,6 +1,7 @@
 <template>
   <div class="app-container">
-    <Sidebar />
+    <Sidebar :is-open="sidebarOpen" @close="sidebarOpen = false" />
+    <div v-if="sidebarOpen" class="sidebar-overlay" @click="sidebarOpen = false" />
     <div class="main-content">
       <header class="header">
         <div class="header-content">
@@ -17,8 +18,15 @@
 </template>
 
 <script setup>
+import { ref } from 'vue'
 import { Menu } from 'lucide-vue-next'
 import Sidebar from './components/Sidebar.vue'
+
+const sidebarOpen = ref(false)
+
+const toggleSidebar = () => {
+  sidebarOpen.value = !sidebarOpen.value
+}
 </script>
 
 <style scoped>
@@ -34,6 +42,7 @@ import Sidebar from './components/Sidebar.vue'
   display: flex;
   flex-direction: column;
   overflow: hidden;
+  margin-left: 18rem;
 }
 
 .header {
@@ -71,11 +80,31 @@ import Sidebar from './components/Sidebar.vue'
   padding: 2rem;
 }
 
+.sidebar-overlay {
+  display: none;
+}
+
 @media (max-width: 768px) {
+  .main-content {
+    margin-left: 0;
+  }
+
   .sidebar-toggle {
     display: flex;
     align-items: center;
     justify-content: center;
+  }
+
+  .sidebar-overlay {
+    display: block;
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 999;
+  }
+
+  .main {
+    padding: 1.25rem;
   }
 }
 </style>
