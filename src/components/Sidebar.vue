@@ -37,7 +37,7 @@
 
 <script setup>
 import { useRoute } from 'vue-router'
-import { Home, Briefcase, FileText, Github, Linkedin, Mail, Youtube } from 'lucide-vue-next'
+import { Home, Briefcase, FileText, PenLine, Github, Linkedin, Mail, Youtube } from 'lucide-vue-next'
 
 defineProps({
   isOpen: {
@@ -55,6 +55,7 @@ const navItems = [
   { title: 'Overview', url: '/', icon: Home },
   { title: 'Portfolio', url: '/portfolio', icon: Briefcase },
   { title: 'Resume', url: '/resume', icon: FileText },
+  // { title: 'Thoughts', url: '/thoughts', icon: PenLine },
 ]
 
 const socials = [
@@ -65,7 +66,8 @@ const socials = [
 ]
 
 const isActive = (url) => {
-  return route.path === url
+  if (url === '/') return route.path === '/'
+  return route.path.startsWith(url)
 }
 </script>
 

@@ -2,55 +2,29 @@
   <div class="page-container">
     <div class="page-header">
       <h1>Thoughts<span class="dot">.</span></h1>
-      <p class="subtitle">Unfiltered notes on data, code, and everything in between.</p>
+      <p class="subtitle">Personal notes on life, work, and interesting topics.</p>
     </div>
 
     <div class="thoughts-list">
-      <article v-for="(thought, i) in thoughts" :key="i" class="thought-item">
+      <router-link
+        v-for="post in posts"
+        :key="post.slug"
+        :to="`/thoughts/${post.slug}`"
+        class="thought-item"
+      >
         <div class="item-meta">
-          <span class="date">{{ thought.date }}</span>
-          <span class="tag">{{ thought.tag }}</span>
+          <span class="date">{{ post.date }}</span>
+          <span class="tag">{{ post.tag }}</span>
         </div>
-        <h3 class="thought-title">{{ thought.title }}</h3>
-        <p class="thought-excerpt">{{ thought.excerpt }}</p>
-      </article>
+        <h3 class="thought-title">{{ post.title }}</h3>
+        <p class="thought-excerpt">{{ post.excerpt }}</p>
+      </router-link>
     </div>
   </div>
 </template>
 
 <script setup>
-const thoughts = [
-  {
-    date: 'Feb 24, 2026',
-    title: 'Why feature engineering still matters in the age of LLMs',
-    excerpt: 'Everyone\'s rushing to fine-tune transformers, but the quiet art of crafting the right features from raw data still wins competitions and ships better products.',
-    tag: 'ML',
-  },
-  {
-    date: 'Feb 22, 2026',
-    title: 'Notes on building data pipelines that don\'t break at 3am',
-    excerpt: 'After years of midnight PagerDuty alerts, here\'s what I\'ve learned about building resilient ETL pipelines that let you sleep.',
-    tag: 'Engineering',
-  },
-  {
-    date: 'Feb 19, 2026',
-    title: 'The quiet power of exploratory data analysis',
-    excerpt: 'Before you build the model, sit with the data. Plot it. Squint at it. The best insights come from patient observation, not clever algorithms.',
-    tag: 'Data',
-  },
-  {
-    date: 'Feb 15, 2026',
-    title: 'On imposter syndrome in tech',
-    excerpt: 'Six years in, and I still Google basic pandas syntax. Turns out that\'s completely normal — and maybe even healthy.',
-    tag: 'Life',
-  },
-  {
-    date: 'Feb 12, 2026',
-    title: 'Building in public: my open-source anomaly detector',
-    excerpt: 'Week 8 of building an anomaly detection library. This week: benchmarking against isolation forests and getting roasted on HN.',
-    tag: 'Building',
-  },
-]
+import { posts } from '../data/posts.js'
 </script>
 
 <style scoped>
@@ -84,13 +58,16 @@ const thoughts = [
 }
 
 .thought-item {
+  display: block;
   padding: 1.5rem 0;
   border-bottom: 1px solid var(--color-border);
   cursor: pointer;
   transition: color var(--transition-fast);
+  text-decoration: none;
+  color: inherit;
 }
 
-.thought-item:hover {
+.thought-item:hover .thought-title {
   color: var(--color-primary);
 }
 
@@ -122,6 +99,7 @@ const thoughts = [
   font-size: 1.125rem;
   font-weight: 500;
   margin: 0 0 0.375rem 0;
+  transition: color var(--transition-fast);
 }
 
 .thought-excerpt {

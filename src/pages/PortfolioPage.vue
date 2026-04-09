@@ -6,7 +6,12 @@
     </div>
 
     <div class="projects-grid">
-      <div v-for="(project, i) in projects" :key="i" class="project-card">
+      <router-link
+        v-for="(project, i) in projects"
+        :key="i"
+        :to="`/portfolio/${project.slug}`"
+        class="project-card"
+      >
         <div class="card-header">
           <h3 class="project-title">{{ project.title }}</h3>
           <span :class="['project-status', project.status]">{{ project.status }}</span>
@@ -15,50 +20,13 @@
         <div class="tech-tags">
           <span v-for="tech in project.tech" :key="tech" class="tech-tag">{{ tech }}</span>
         </div>
-      </div>
+      </router-link>
     </div>
   </div>
 </template>
 
 <script setup>
-const projects = [
-  {
-    title: 'Real-time Fire Detection Analytics',
-    description: 'Apache Spark Structured Streaming pipeline processing IoT alarm signals for Jabatan Bomba Malaysia. Integrated Kafka and PostgreSQL for lowest latency fire detection monitoring.',
-    tech: ['Apache Spark', 'Kafka', 'PostgreSQL', 'Docker'],
-    status: 'live',
-  },
-  {
-    title: 'CO₂ Dehydration Predictive Analytics',
-    description: 'PETRONAS-Academia collaboration forecasting adsorption capacity. Django-based system with continuous model retraining, EDA on oil & gas datasets, time-series analysis for trends.',
-    tech: ['Django', 'Python', 'Docker', 'SQL Server'],
-    status: 'live',
-  },
-  {
-    title: 'SWIFT Golf Scoring OCR',
-    description: 'OCR feature for golf scoring application. OpenCV for image pre-processing and OpenAI model integration for scorecard reading with MQTT live scoreboard updates.',
-    tech: ['OpenCV', 'OpenAI', 'MQTT', 'Python'],
-    status: 'live',
-  },
-  {
-    title: 'Oil & Gas Operational Dashboard',
-    description: 'Dynamic predictive analytics dashboard for platform monitoring. Database architecture design and Power BI integration with gateway configuration.',
-    tech: ['Power BI', 'SQL Server', 'Python'],
-    status: 'live',
-  },
-  {
-    title: 'RAG Research Codebase',
-    description: 'Experimental Retrieval-Augmented Generation implementation using LangChain foundations for future AI projects.',
-    tech: ['LangChain', 'Python', 'AI/ML'],
-    status: 'building',
-  },
-  {
-    title: 'Stock Market Web Scraper',
-    description: 'Dynamic web scraping using Selenium to extract real-time data from stock market news sites.',
-    tech: ['Selenium', 'Python', 'Web Scraping'],
-    status: 'archived',
-  },
-]
+import { projects } from '../data/projects.js'
 </script>
 
 <style scoped>
@@ -99,6 +67,9 @@ const projects = [
   background-color: var(--color-card);
   border: 1px solid var(--color-border);
   transition: border-color var(--transition-fast);
+  text-decoration: none;
+  color: inherit;
+  display: block;
   cursor: pointer;
 }
 
