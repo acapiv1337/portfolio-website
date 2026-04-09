@@ -42,7 +42,13 @@ const recentProjects = [
   { name: 'SWIFT Golf Scoring OCR', tech: 'OpenCV · OpenAI · MQTT', status: 'wip' },
 ]
 
-const aboutText = `I'm a developer with a strong data science background and over 2 years of experience building AI-driven solutions. Starting with two years at university research institutes developing innovative analytics pipelines, I ventured into the startup world as an AI Developer at CARA COM MY, where I design and implement real-time data systems and machine learning models. I'm passionate about exploring new tech stacks, building impactful projects, and sharing knowledge openly. I believe in collaborative learning and turning complex concepts into elegant, practical solutions.`
+const aboutText = `
+I'm a data scientist and machine learning engineer with over 3 years of experience in the field. I've worked on a wide range of projects, from building predictive models to creating AI-powered solutions for businesses. I have a strong background in data analysis, machine learning, and software development, and I'm passionate about using technology to solve real-world problems.
+
+I'm excited to bring my skills and experience to your team and help you achieve your goals. Whether you're looking to improve your data pipelines, build intelligent systems, or create innovative solutions, I'm here to help.
+
+If you're interested in learning more about me, please feel free to reach out. I'm always happy to chat and answer any questions you may have.
+`
 </script>
 
 <style scoped>
