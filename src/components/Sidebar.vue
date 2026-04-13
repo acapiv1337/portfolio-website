@@ -55,7 +55,7 @@ const navItems = [
   { title: 'Overview', url: '/', icon: Home },
   { title: 'Portfolio', url: '/portfolio', icon: Briefcase },
   { title: 'Resume', url: '/resume', icon: FileText },
-  // { title: 'Thoughts', url: '/thoughts', icon: PenLine },
+  { title: 'Thoughts', url: '/thoughts', icon: PenLine },
 ]
 
 const socials = [

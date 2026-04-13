@@ -1,38 +1,38 @@
 ---
-published: false
+published: true
 title: DIY self-hosting
 date: Apr 8, 2026
 tag: Self-hosting
 excerpt: My attempt at self-hosting without prior knoweldge.
 ---
 
-When working at IBDAAI as data scientist/researcher, I never had to deal with working with a server. I was only run Flask apps locally and I didn't have to worry about the networking and infrastructure. At CARA was my first working on a project that involves using outside networks. A live product used by actual user. That was when I'm realizing how much I don't know. IPs, ports, and protocols. The list goes on. These things are something that I only ever heard during studying but never really try to understand.
+When working at IBDAAI as data scientist/researcher, I never had to deal working with a server. Run my experiment on laptop and Flask on run locally. Therefore, I didn't have to worry about the networking and infrastructure. Then, new jobs happend. At CARA was my first time working on a project that involves using public networks. A live product used by actual user. That was when I'm realizing how much I don't know. IPs, ports, and protocols. The list goes on. These things are something that I only ever heard during studying but never really try to understand.
 
 
 ## What motivated me to self-host
 
-I have always wanted my own personal server. Able to run my own apps and websites sounds amazing. Create meme websites to share with friends. Run virtual assistant at homes like Alexa so that I have someone to talk to. 
+At first, I never thought about self-hosting. I just wanted to own websites that can be accessed from anywhere for my personal use. However, I realized that with server I can do more than that. I can run my minecraft server, cloud storage and run like virtual assistant. Then, the thought hit me, why not run my own server? I already subscribed to ISPs and I have money to spend on. Doing this is a good way to learn about networking and stuff, right?
 
-It wasn't one thing. It was the slow accumulation of annoyances:
+I started to research and find the most affordable mini pc to run my server on. I found a mini pc DELL 7040 i5 6TH GEN with 16GB RAM and 256GB SSD. I think good enough to run portfolio and some side projects.
 
-- Notion raised prices and started gating features
-- A note-taking app I loved got acquired and killed within a year
-- Cloud storage costs quietly doubled
+picture here
 
-At some point I realized: **I'm renting access to my own data.**
+Then buy refurbished monitor and reused my old mouse and keyboard. I also bought a new HDMI cable and VGA to HDMI adapter. 
 
-## What I run now
+https://shopee.com.my/DELL-HP-MINI-PC-7090-7060-7040-705-G4-UP-TO-32GB-RAM-16GB-DDR4-RAM-512GB-SSD-STORAGE-WARRANTY-WIN-11-PRO--i.161561928.3339952825
 
-Everything runs in Docker on a single server sitting in my room:
 
-- **Gitea** — private git repos
-- **Immich** — photos, self-hosted Google Photos replacement
-- **Vaultwarden** — Bitwarden-compatible password manager
-- **Uptime Kuma** — monitoring dashboard
-- **Nginx Proxy Manager** — reverse proxy with SSL
+The total cost was around RM [[]]
 
-## Is it worth it?
 
-Honestly, yes. The upfront work was steep but now it mostly runs itself. The only real cost is electricity and the one-time hardware purchase.
 
-The bigger benefit isn't even the money. It's knowing exactly where my data is.
+Start with a fresh install of Ubuntu.
+
+
+picture here
+
+
+
+The easy part is done. Now is the hard part. Getting my own private network.  
+
+Honestly, yes. The upfront work was steep but now it mostly runs itself. The only real cost is electricity and occasionally the cleaning. The bigger benefit however isn't even the money. It's knowing exactly where everything is running.
