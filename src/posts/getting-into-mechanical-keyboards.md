@@ -1,5 +1,5 @@
 ---
-published: true
+published: false
 title: Getting into mechanical keyboards (and not going brokes)
 date: Mar 22, 2026
 tag: Hobby

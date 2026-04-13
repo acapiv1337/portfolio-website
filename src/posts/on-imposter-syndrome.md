@@ -1,5 +1,5 @@
 ---
-published: true
+published: false
 title: On imposter syndrome in tech
 date: Feb 15, 2026
 tag: Life
