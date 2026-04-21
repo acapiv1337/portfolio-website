@@ -29,12 +29,10 @@ Here is approximate of the total hardware cost:
 | **Total** | **601.85** |
 
 
-Start with a fresh install of Ubuntu.
-
+Now we have everything ready. Starting with installing the Ubuntu
 
 ![My mini PC setup](/keyboard-monitor.jpg)
 
+The easy part setup the hardware is done. Now is the hard part. Getting my own private network. I will cover about it in part 2 on how to get your own private network, domain hosting, DDNS, proxy manager and etc. 
 
-The easy part is done. Now is the hard part. Getting my own private network. I will write about it later in part 2 on how to get your own private network, domain hosting, DDNS, proxy and etc. 
-
-Honestly, yes. The upfront work was steep but now it mostly runs itself. The only real cost is electricity and occasionally the cleaning. The bigger benefit however isn't even the money. It's knowing exactly where everything is running.
+The upfront work was steep but now it mostly runs itself. The only real cost is electricity and occasionally the cleaning. The bigger benefit however isn't even the money. It's knowing exactly where everything is running. This website you are reading right now is hosted on my own server.
