@@ -2,7 +2,7 @@
 published: true
 title: DIY self-hosting
 date: Apr 8, 2026
-tag: Self-hosting
+tag: DevOps
 excerpt: My attempt at self-hosting without prior knowledge (Part 1).
 ---
 When working at IBDAAI as data scientist/researcher, I never had to deal working with a server. Run my experiment on laptop and Flask on run locally. Therefore, I didn't have to worry about the networking and infrastructure. Then, new jobs happened. At CARA was my first time working on a project that involves using public networks. A live product used by actual user. That was when I'm realizing how much I don't know. IPs, ports, and protocols. The list goes on. These things are something that I only ever heard during studying but never really try to understand.
