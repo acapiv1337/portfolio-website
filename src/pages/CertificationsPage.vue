@@ -10,10 +10,10 @@
         <div v-for="cert in certifications" :key="cert.name" class="list-item">
           <div class="item-header">
             <h3 class="item-name">{{ cert.name }}</h3>
-            <span class="item-year">{{ cert.year }}</span>
+            <span class="item-period">{{ cert.period }}</span>
           </div>
           <p class="item-issuer">{{ cert.issuer }}</p>
-          <p v-if="cert.credential" class="item-credential">{{ cert.credential }}</p>
+          <a v-if="cert.credentialUrl" :href="cert.credentialUrl" target="_blank" rel="noopener noreferrer" class="item-credential-link">Show credential ↗</a>
         </div>
       </div>
     </section>
@@ -23,34 +23,34 @@
 <script setup>
 const certifications = [
   {
-    name: 'AWS Certified Cloud Practitioner',
-    issuer: 'Amazon Web Services',
-    year: '2024',
-    credential: '',
+    name: 'AWS Certified AI Practitioner',
+    issuer: 'Amazon Web Services (AWS)',
+    period: 'Issued Jul 2025 · Expires Jul 2028',
+    credentialUrl: 'https://cp.certmetrics.com/amazon/en/public/verify/credential/ca6c525e11c14d0bb1b80acc9c634b82',
+  },
+  {
+    name: 'Data Scientist Associate',
+    issuer: 'DataCamp',
+    period: 'Issued Jan 2024 · Expires Jan 2026',
+    credentialUrl: 'https://www.datacamp.com/certificate/DSA0010619434545',
+  },
+  {
+    name: 'Data Analyst Associate',
+    issuer: 'DataCamp',
+    period: 'Issued Jan 2024 · Expires Jan 2026',
+    credentialUrl: 'https://www.datacamp.com/certificate/DAA0016542429928',
+  },
+  {
+    name: 'PCEP – Certified Entry-Level Python Programmer',
+    issuer: 'OpenEDG Python Institute',
+    period: 'Issued Apr 2023',
+    credentialUrl: 'https://verify.openedg.org/?id=wV7q.7TLm.cdRw',
   },
   {
     name: 'Microsoft Certified: Power BI Data Analyst Associate',
     issuer: 'Microsoft',
-    year: '2024',
-    credential: '',
-  },
-  {
-    name: 'Certification 3',
-    issuer: 'Issuer',
-    year: '2023',
-    credential: '',
-  },
-  {
-    name: 'Certification 4',
-    issuer: 'Issuer',
-    year: '2023',
-    credential: '',
-  },
-  {
-    name: 'Certification 5',
-    issuer: 'Issuer',
-    year: '2022',
-    credential: '',
+    period: 'Issued Mar 2023 · Expires Mar 2027',
+    credentialUrl: 'https://learn.microsoft.com/en-us/users/muhammadamirulasyrafroslan-7168/credentials/50ac7da3bb564a12?ref=https%3A%2F%2Fwww.linkedin.com%2F',
   },
 ]
 </script>
@@ -112,7 +112,7 @@ const certifications = [
   margin: 0;
 }
 
-.item-year {
+.item-period {
   font-size: 0.75rem;
   font-family: var(--font-family-mono);
   color: var(--color-foreground-muted);
@@ -126,9 +126,17 @@ const certifications = [
   margin: 0.375rem 0 0 0;
 }
 
-.item-credential {
+.item-credential-link {
+  display: inline-block;
   font-size: 0.75rem;
-  color: var(--color-foreground-muted);
-  margin: 0.25rem 0 0 0;
+  font-family: var(--font-family-mono);
+  color: var(--color-primary);
+  margin: 0.375rem 0 0 0;
+  text-decoration: none;
+  transition: opacity var(--transition-fast);
+}
+
+.item-credential-link:hover {
+  opacity: 0.75;
 }
 </style>
