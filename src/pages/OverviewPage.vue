@@ -31,9 +31,9 @@
 import { Brain, Briefcase, FileText, TrendingUp } from 'lucide-vue-next'
 
 const stats = [
-  { label: 'Experience', value: '3', icon: TrendingUp, change: 'ML & AI' },
+  { label: 'Experience', value: '3 years', icon: TrendingUp, change: '' },
   { label: 'Projects Shipped', value: '4', icon: Briefcase, change: '' },
-  { label: 'Certifications', value: '5', icon: FileText, change: 'AWS, Power BI' },
+  { label: 'Certifications', value: '5', icon: FileText, change: '' },
 ]
 
 const recentProjects = [

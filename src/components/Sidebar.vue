@@ -37,7 +37,7 @@
 
 <script setup>
 import { useRoute } from 'vue-router'
-import { Home, Briefcase, FileText, PenLine, Github, Linkedin, Mail, Youtube } from 'lucide-vue-next'
+import { Home, Briefcase, FileText, PenLine, Award, Github, Linkedin, Mail, Youtube } from 'lucide-vue-next'
 
 defineProps({
   isOpen: {
@@ -56,6 +56,7 @@ const navItems = [
   { title: 'Portfolio', url: '/portfolio', icon: Briefcase },
   { title: 'Resume', url: '/resume', icon: FileText },
   { title: 'Thoughts', url: '/thoughts', icon: PenLine },
+  { title: 'Certifications', url: '/certifications', icon: Award },
 ]
 
 const socials = [

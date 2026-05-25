@@ -9,6 +9,7 @@ import ThoughtPostPage from './pages/ThoughtPostPage.vue'
 import PortfolioPage from './pages/PortfolioPage.vue'
 import ProjectDetailPage from './pages/ProjectDetailPage.vue'
 import ResumePage from './pages/ResumePage.vue'
+import CertificationsPage from './pages/CertificationsPage.vue'
 
 // Import global styles
 import './assets/css/reset.css'
@@ -22,6 +23,7 @@ const routes = [
   { path: '/portfolio', component: PortfolioPage },
   { path: '/portfolio/:slug', component: ProjectDetailPage },
   { path: '/resume', component: ResumePage },
+  { path: '/certifications', component: CertificationsPage },
 ]
 
 const router = createRouter({
