@@ -7,3 +7,18 @@ published: true
 ---
 
 Stock chart dashboard for **Malaysian rubber glove stocks** (HARTA, KOSSAN, SUPERMX, TOPGLOV). Interactive TradingView charts, data scrape from MooMoo take from desktop app.
+
+### Features
+
+- **Interactive charts** — TradingView charting widgets with OHLC data
+
+### Architecture
+
+```
+Vue 3 + Vite → FastAPI + SQLAlchemy → PostgreSQL
+       ↕ Nginx (stock.acapans.com)
+```
+
+### Deploy
+
+At **stock.acapans.com**

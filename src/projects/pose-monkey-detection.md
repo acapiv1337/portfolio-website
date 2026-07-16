@@ -13,8 +13,6 @@ Real-time pose classification web app. Captures webcam frames via WebSocket, run
 - **Real-time streaming** — WebSocket-based pipeline: webcam → canvas capture → base64 JPEG → YOLO keypoints → XGBoost classification → overlay
 - **Two input modes** — 📷 Live webcam stream + 📁 Upload single image
 - **Dual-panel layout** — Webcam/image left, classification result + reference monkey pose right
-- **Login gate** — Native `window.prompt()` password protection
-- **Canvas-based** frame capture at ~6.5 FPS, 320×240 resolution
 
 ### Architecture
 
@@ -29,4 +27,4 @@ Vue 3 + Vite (port 5173) ← WebSocket/base64-jpeg → FastAPI + YOLOv8 + XGBoos
 
 ### Deploy
 
-Self-hosted runner on gensokyo. Push to `main` → `docker compose -f docker-compose.yml -f docker-compose.server.yml up -d --build --force-recreate`.
+**monke.acapans.com**. Password is 
