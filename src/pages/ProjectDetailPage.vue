@@ -38,6 +38,19 @@ import { getProjectBySlug } from '../data/projects.js'
 const route = useRoute()
 const project = computed(() => getProjectBySlug(route.params.slug))
 const renderedContent = computed(() => project.value?.content ? marked(project.value.content) : '')
+
+// Global one-time delegation for .pw-reveal buttons across all project detail pages
+if (!document._pwRevealAttached) {
+  document.addEventListener('click', (e) => {
+    const btn = e.target.closest('.pw-reveal')
+    if (!btn) return
+    fetch('/coffee-password.json')
+      .then(r => r.json())
+      .then(data => { btn.outerHTML = `<code>${data.password}</code>` })
+      .catch(() => { btn.textContent = 'Failed to load' })
+  })
+  document._pwRevealAttached = true
+}
 </script>
 
 <style scoped>
@@ -202,5 +215,22 @@ const renderedContent = computed(() => project.value?.content ? marked(project.v
   border: none;
   border-top: 1px solid var(--color-border);
   margin: 2rem 0;
+}
+
+.project-body :deep(.pw-reveal) {
+  font-family: var(--font-family-mono);
+  font-size: 0.8rem;
+  background: var(--color-card);
+  border: 1px solid var(--color-border);
+  color: var(--color-foreground-muted);
+  padding: 0.35rem 0.75rem;
+  border-radius: 0.25rem;
+  cursor: pointer;
+  transition: border-color var(--transition-fast);
+}
+
+.project-body :deep(.pw-reveal):hover {
+  border-color: var(--color-primary);
+  color: var(--color-primary);
 }
 </style>

@@ -22,6 +22,7 @@ export const projects = Object.entries(modules)
       slug,
       title: meta.title ?? '',
       description: meta.description ?? '',
+      category: meta.category ?? 'personal',
       tech: meta.tech ? meta.tech.split(',').map(t => t.trim()) : [],
       status: meta.status ?? 'live',
       published: meta.published !== 'false',
