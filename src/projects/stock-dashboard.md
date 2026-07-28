@@ -1,12 +1,10 @@
 ---
 title: Stock Dashboard
-description: Real-time stock chart dashboard for Malaysian rubber glove stocks (HARTA, KOSSAN, SUPERMX, TOPGLOV). Interactive TradingView charts.
+description: Prototype dashboard testing data scraping from a trading platform for Malaysian rubber glove stocks (HARTA, KOSSAN, SUPERMX, TOPGLOV). Scraped data feeds a WIP auto-trade app.
 tech: Vue 3, FastAPI, Python, PostgreSQL, Docker, Nginx, GitHub Actions, TradingView
 status: live
 published: true
 ---
-
-Stock chart dashboard for **Malaysian rubber glove stocks** (HARTA, KOSSAN, SUPERMX, TOPGLOV). Interactive TradingView charts, data scrape from MooMoo take from desktop app.
 
 ### Features
 
@@ -16,9 +14,8 @@ Stock chart dashboard for **Malaysian rubber glove stocks** (HARTA, KOSSAN, SUPE
 
 ```
 Vue 3 + Vite → FastAPI + SQLAlchemy → PostgreSQL
-       ↕ Nginx (stock.acapans.com)
 ```
 
 ### Deploy
 
-At **stock.acapans.com**
+Live at [stock.acapans.com](https://stock.acapans.com).

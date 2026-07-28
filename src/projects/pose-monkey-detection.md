@@ -6,8 +6,6 @@ status: live
 published: true
 ---
 
-Real-time pose classification web app. Captures webcam frames via WebSocket, runs **YOLOv8s-pose** for keypoint extraction + **XGBoost** for gesture classification (4 classes: heart-attack, idea, stand, think).
-
 ### Features
 
 - **Real-time streaming** — WebSocket-based pipeline: webcam → canvas capture → base64 JPEG → YOLO keypoints → XGBoost classification → overlay
@@ -18,7 +16,6 @@ Real-time pose classification web app. Captures webcam frames via WebSocket, run
 
 ```
 Vue 3 + Vite (port 5173) ← WebSocket/base64-jpeg → FastAPI + YOLOv8 + XGBoost (port 8001)
-                   ↕ Nginx reverse proxy                          
 ```
 
 - **Frontend:** Vue 3 + Vite, Comic Neue font, full-screen `bg.jpeg` background
@@ -27,4 +24,6 @@ Vue 3 + Vite (port 5173) ← WebSocket/base64-jpeg → FastAPI + YOLOv8 + XGBoos
 
 ### Deploy
 
-**monke.acapans.com**. Password is 
+[monke.acapans.com](https://monke.acapans.com).
+
+<button class="pw-reveal" data-pw="/monke-password.json">Credential</button>

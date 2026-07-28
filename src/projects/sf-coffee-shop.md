@@ -6,8 +6,6 @@ status: live
 published: true
 ---
 
-Full-stack coffee shop management platform with AI chatbot ordering, and business intelligence insights.
-
 ### Architecture
 
 ```
@@ -21,6 +19,6 @@ Vue 3 + Vite (port 3000) → FastAPI (port 8000) → MySQL + Redis
 
 ### Deploy
 
-**coffee.acapans.com**.
+[coffee.acapans.com](https://coffee.acapans.com).
 
-<button class="pw-reveal">Click to reveal portfolio password</button>
+<button class="pw-reveal">Credential</button>

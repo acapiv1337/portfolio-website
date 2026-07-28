@@ -12,7 +12,6 @@
           <span :class="['project-status', project.status]">{{ project.status }}</span>
         </div>
         <h1 class="project-title">{{ project.title }}</h1>
-        <p class="project-description">{{ project.description }}</p>
       </header>
 
       <div v-if="project.content" class="project-body" v-html="renderedContent" />
@@ -44,9 +43,17 @@ if (!document._pwRevealAttached) {
   document.addEventListener('click', (e) => {
     const btn = e.target.closest('.pw-reveal')
     if (!btn) return
-    fetch('/coffee-password.json')
+    const url = btn.dataset.pw || '/coffee-password.json'
+    fetch(url)
       .then(r => r.json())
-      .then(data => { btn.outerHTML = `<code>${data.password}</code>` })
+      .then(data => {
+        let h = '<div style="display:flex;flex-direction:column;gap:0.5rem;font-size:0.875rem">'
+        h += '<div><strong style="color:var(--color-foreground);font-weight:600">Site Access:</strong> <code>' + data.password + '</code></div>'
+        if (data.admin) h += '<div><strong style="color:var(--color-foreground);font-weight:600">Admin:</strong> <code>' + data.admin.username + '</code> / <code>' + data.admin.password + '</code></div>'
+        if (data.customer) h += '<div><strong style="color:var(--color-foreground);font-weight:600">Customer:</strong> <code>' + data.customer.username + '</code> / <code>' + data.customer.password + '</code></div>'
+        h += '</div>'
+        btn.outerHTML = h
+      })
       .catch(() => { btn.textContent = 'Failed to load' })
   })
   document._pwRevealAttached = true
@@ -125,13 +132,6 @@ if (!document._pwRevealAttached) {
   font-weight: 700;
   line-height: 1.3;
   margin: 0 0 0.75rem;
-}
-
-.project-description {
-  font-size: 0.9375rem;
-  color: var(--color-foreground-muted);
-  line-height: 1.6;
-  margin: 0;
 }
 
 .not-found {
