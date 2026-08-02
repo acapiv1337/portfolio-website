@@ -3,7 +3,12 @@ name: Build and Deploy Portfolio
 on:
   push:
     branches: [ main ]
-  workflow_dispatch: {}
+  workflow_dispatch:
+    inputs:
+      image_tag:
+        description: 'Image tag to deploy (e.g. 1.0.0). Leave blank for latest.'
+        required: false
+        default: 'latest'
 
 permissions:
   contents: write
@@ -32,7 +37,10 @@ jobs:
         run: npx semantic-release
 
       - name: Deploy
+        env:
+          IMAGE_TAG: ${{ github.event.inputs.image_tag || 'latest' }}
         run: |
+          echo "Deploying image tag: $IMAGE_TAG"
           set +e
           pulled=1
           for i in 1 2 3; do

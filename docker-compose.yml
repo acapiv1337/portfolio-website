@@ -1,6 +1,6 @@
 services:
   portfolio:
-    image: ghcr.io/acapiv1337/portfolio-website:latest
+    image: ghcr.io/acapiv1337/portfolio-website:${IMAGE_TAG:-latest}
     ports:
       - "5174:5173"
     environment:
