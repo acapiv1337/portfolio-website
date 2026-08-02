@@ -28,9 +28,20 @@ jobs:
 
       - name: Deploy
         run: |
+          set +e
+          pulled=1
           for i in 1 2 3; do
-            docker compose pull && break
-            echo "Pull failed (attempt $i/3), retrying in 5s..."
+            docker compose pull 2>&1 | tee -a /home/acap/last-portfolio-deploy.log
+            if [ ${PIPESTATUS[0]} -eq 0 ]; then
+              pulled=0
+              break
+            fi
+            echo "Pull failed (attempt $i/3), retrying in 5s..." | tee -a /home/acap/last-portfolio-deploy.log
             sleep 5
           done
+          set -e
+          if [ "$pulled" -ne 0 ]; then
+            echo "::error::docker compose pull failed after 3 attempts"
+            exit 1
+          fi
           docker compose up -d --force-recreate
