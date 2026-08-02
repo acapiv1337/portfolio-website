@@ -25,6 +25,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: npx semantic-release
 
-      - name: Build and deploy
+      - name: Deploy
         run: |
-          docker compose up -d --build --force-recreate
+          docker compose pull
+          docker compose up -d --force-recreate
