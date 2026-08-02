@@ -1,34 +1,19 @@
 #!/bin/bash
+set -euo pipefail
 
-# Simple deployment script for portfolio website
-# This can be used as a git hook or run manually
+IMAGE="ghcr.io/acapiv1337/portfolio-website"
+VERSION=$(node -p "require('./package.json').version")
+REMOTE_HOST="192.168.100.169"
+REMOTE_PATH="/home/acap/apps/portfolio-website"
 
-echo "🏗️ Building portfolio website..."
-cd /home/acap/portfolio-website
+echo "Building $IMAGE:latest (also tagged :$VERSION)..."
+docker build -t "$IMAGE:latest" -t "$IMAGE:$VERSION" .
 
-# Install dependencies if needed
-if [ ! -d "node_modules" ]; then
-    echo "📦 Installing dependencies..."
-    npm install
-fi
+echo "Pushing images..."
+docker push "$IMAGE:latest"
+docker push "$IMAGE:$VERSION"
 
-# Build the project
-echo "🔨 Building project..."
-npm run build
+echo "Deploying on $REMOTE_HOST..."
+ssh "$REMOTE_HOST" "cd $REMOTE_PATH && docker compose up -d --pull always --force-recreate"
 
-# Check if build was successful
-if [ $? -eq 0 ]; then
-    echo "✅ Build successful!"
-    
-    # Deploy to web server
-    echo "🚀 Deploying to web server..."
-    sudo cp -r dist/* /var/www/html/
-    sudo chown -R www-data:www-data /var/www/html/
-    sudo chmod -R 755 /var/www/html/
-    
-    echo "🎉 Deployment completed successfully!"
-    echo "Your website is live at your server's address"
-else
-    echo "❌ Build failed! Please check the errors above."
-    exit 1
-fi
+echo "Done. Live at https://acapans.com"
