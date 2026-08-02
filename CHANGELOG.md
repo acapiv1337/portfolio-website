@@ -1,3 +1,10 @@
+# [1.1.0](https://github.com/acapiv1337/portfolio-website/compare/v1.0.0...v1.1.0) (2026-08-02)
+
+
+### Features
+
+* allow pinning a specific image tag via manual deploy ([21a689d](https://github.com/acapiv1337/portfolio-website/commit/21a689d8746f2520f5df6cc50f07ff0eedc55610))
+
 # 1.0.0 (2026-08-02)
 
 
