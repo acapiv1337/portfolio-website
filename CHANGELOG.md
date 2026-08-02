@@ -1,3 +1,11 @@
+# [1.2.0](https://github.com/acapiv1337/portfolio-website/compare/v1.1.0...v1.2.0) (2026-08-02)
+
+
+### Features
+
+* add manual deploy script as a CI fallback ([11f140a](https://github.com/acapiv1337/portfolio-website/commit/11f140a57ac8762b12ae8d99532378c7198981c6))
+* build image on GitHub-hosted runner instead of gensokyo ([5e9c12b](https://github.com/acapiv1337/portfolio-website/commit/5e9c12bf9378f5fafb411269d1b56beb25b39bdf))
+
 # [1.1.0](https://github.com/acapiv1337/portfolio-website/compare/v1.0.0...v1.1.0) (2026-08-02)
 
 
