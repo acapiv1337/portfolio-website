@@ -3,6 +3,7 @@ name: Build and Deploy Portfolio
 on:
   push:
     branches: [ main ]
+  workflow_dispatch: {}
 
 permissions:
   contents: write
@@ -27,5 +28,9 @@ jobs:
 
       - name: Deploy
         run: |
-          docker compose pull
+          for i in 1 2 3; do
+            docker compose pull && break
+            echo "Pull failed (attempt $i/3), retrying in 5s..."
+            sleep 5
+          done
           docker compose up -d --force-recreate
