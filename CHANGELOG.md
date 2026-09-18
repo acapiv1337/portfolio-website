@@ -1,3 +1,10 @@
+## [1.2.1](https://github.com/acapiv1337/portfolio-website/compare/v1.2.0...v1.2.1) (2026-09-18)
+
+
+### Bug Fixes
+
+* **coffee:** correct demo site access password to the deployed gate value ([c124a66](https://github.com/acapiv1337/portfolio-website/commit/c124a662e75d138649d87d49994e205ccc83a666))
+
 # [1.2.0](https://github.com/acapiv1337/portfolio-website/compare/v1.1.0...v1.2.0) (2026-08-02)
 
 
